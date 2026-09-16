@@ -39,7 +39,7 @@ img{max-width:100%;display:block}
 .nav-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--green)}
 .brand img{width:58px;height:58px;object-fit:cover;border-radius:50%}
-.brand span{font-family:"Cormorant Garamond",serif;font-size:1.55rem;line-height:1}
+.brand div{font-family:"Cormorant Garamond",serif;font-size:1.55rem;line-height:1}
 .brand small{display:block;font-family:Inter,sans-serif;font-size:.62rem;letter-spacing:.22em;color:var(--muted);margin-top:4px}
 .nav-links{display:flex;align-items:center;gap:24px;font-size:.9rem;font-weight:600}
 .nav-links a{position:relative;padding:7px 0;color:#304b48}
