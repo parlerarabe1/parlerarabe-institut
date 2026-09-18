@@ -1,11 +1,45 @@
 <!doctype html><html lang="fr"><head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V03TXP7BSP"></script>
+<!-- Google Analytics: loaded only after analytics consent -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-V03TXP7BSP');
+(function(){
+  const key = 'pai_analytics_consent';
+  function loadAnalytics(){
+    if (window.__paiAnalyticsLoaded) return;
+    window.__paiAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('consent','default',{
+      analytics_storage:'granted',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+    const s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-V03TXP7BSP';
+    document.head.appendChild(s);
+    gtag('js',new Date());
+    gtag('config','G-V03TXP7BSP');
+  }
+  window.paiSetAnalyticsConsent=function(value){
+    localStorage.setItem(key,value);
+    if(value==='granted') loadAnalytics();
+    const banner=document.getElementById('cookie-consent');
+    if(banner) banner.hidden=true;
+  };
+  if(localStorage.getItem(key)==='granted') loadAnalytics();
+  window.addEventListener('DOMContentLoaded',function(){
+    if(localStorage.getItem(key)) return;
+    const banner=document.createElement('div');
+    banner.id='cookie-consent';
+    banner.setAttribute('role','dialog');
+    banner.setAttribute('aria-label','Choix des cookies de mesure d’audience');
+    banner.innerHTML='<div class="cookie-consent-inner"><div><strong>Mesure d’audience</strong><p>Nous utilisons Google Analytics pour comprendre la fréquentation du site et améliorer nos contenus. Vous pouvez accepter ou refuser cette mesure.</p></div><div class="cookie-actions"><button class="btn btn-secondary cookie-refuse" type="button">Refuser</button><button class="btn btn-primary cookie-accept" type="button">Accepter</button></div></div>';
+    document.body.appendChild(banner);
+    banner.querySelector('.cookie-refuse').addEventListener('click',()=>window.paiSetAnalyticsConsent('denied'));
+    banner.querySelector('.cookie-accept').addEventListener('click',()=>window.paiSetAnalyticsConsent('granted'));
+  });
+})();
 </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Découvrez les témoignages d'anciens élèves accompagnés par Jaafar Al Qamary dans leur apprentissage de l'arabe : méthode, progression, clarté et accompagnement."><meta name="robots" content="index, follow"><link rel="canonical" href="https://parlerarabe.fr/temoignages.html"><link rel="stylesheet" href="style.css"><title>Témoignages d'élèves | Parler Arabe Institut</title></head><body>
 <header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/logo-corrige.png?v=2" alt="Parler Arabe Institut"><div>Parler Arabe<small>INSTITUT</small></div></a><button class="menu-btn" aria-label="Ouvrir le menu">☰</button><nav class="nav-links"><a href="index.html">Accueil</a><a href="formations.html">Nos formations</a><a href="methode.html">Méthode</a><a href="qui-sommes-nous.html">Qui sommes-nous ?</a><a href="temoignages.html">Témoignages</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a class="nav-cta" href="https://forms.gle/Bd4HH4yFsfzQt44U6" target="_blank" rel="noopener">Je m'inscris</a></nav></div></header>
 <main><section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Accueil</a> / Témoignages</div><div class="eyebrow">Témoignages</div><h1>Ils ont appris avec notre enseignant.</h1><p>Des retours authentiques d'anciens élèves accompagnés par Jaafar Al Qamary, avant la création de Parler Arabe Institut. Les témoignages ont uniquement été légèrement corrigés dans leur forme afin d'en faciliter la lecture.</p></div></section>
