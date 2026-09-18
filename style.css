@@ -209,3 +209,12 @@ details p{color:var(--muted);padding:0 0 20px;margin:0}
   .cta{padding:32px 24px}
   .stats{grid-template-columns:1fr}
 }
+
+
+/* Consentement mesure d'audience */
+#cookie-consent{position:fixed;left:18px;right:18px;bottom:18px;z-index:9999;background:#fff;border:1px solid rgba(7,63,60,.16);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.18);padding:18px}
+.cookie-consent-inner{max-width:1120px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.cookie-consent-inner p{margin:5px 0 0;max-width:760px;font-size:.95rem}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-refuse{border-color:#073f3c;color:#073f3c;background:#fff}
+@media(max-width:700px){.cookie-consent-inner{display:block}.cookie-actions{margin-top:14px}.cookie-actions .btn{flex:1}}
