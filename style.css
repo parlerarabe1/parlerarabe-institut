@@ -218,3 +218,16 @@ details p{color:var(--muted);padding:0 0 20px;margin:0}
 .cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .cookie-refuse{border-color:#073f3c;color:#073f3c;background:#fff}
 @media(max-width:700px){.cookie-consent-inner{display:block}.cookie-actions{margin-top:14px}.cookie-actions .btn{flex:1}}
+
+
+/* Les quatre compétences */
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+.skill{background:rgba(255,253,247,.88);border:1px solid rgba(13,91,86,.10);border-radius:20px;padding:26px 22px;text-align:center;box-shadow:0 10px 30px rgba(7,63,60,.045);transition:.25s ease}
+.skill:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.skill-icon{width:54px;height:54px;margin:0 auto 16px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--aqua-light);color:var(--green)}
+.skill-icon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.skill h3{font-size:1.65rem;margin-bottom:8px}
+.skill p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+.skills-note{max-width:720px;margin:24px auto 0;text-align:center;color:var(--green-dark);font-weight:600}
+@media(max-width:900px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.skill-grid{grid-template-columns:1fr 1fr;gap:11px}.skill{padding:20px 12px}.skill-icon{width:46px;height:46px}.skill-icon svg{width:23px;height:23px}.skill h3{font-size:1.4rem}.skill p{font-size:.82rem}}
