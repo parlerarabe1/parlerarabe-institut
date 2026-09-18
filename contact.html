@@ -1,11 +1,45 @@
 <!doctype html><html lang="fr"><head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V03TXP7BSP"></script>
+<!-- Google Analytics: loaded only after analytics consent -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-V03TXP7BSP');
+(function(){
+  const key = 'pai_analytics_consent';
+  function loadAnalytics(){
+    if (window.__paiAnalyticsLoaded) return;
+    window.__paiAnalyticsLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){dataLayer.push(arguments);};
+    gtag('consent','default',{
+      analytics_storage:'granted',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+    const s=document.createElement('script');
+    s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id=G-V03TXP7BSP';
+    document.head.appendChild(s);
+    gtag('js',new Date());
+    gtag('config','G-V03TXP7BSP');
+  }
+  window.paiSetAnalyticsConsent=function(value){
+    localStorage.setItem(key,value);
+    if(value==='granted') loadAnalytics();
+    const banner=document.getElementById('cookie-consent');
+    if(banner) banner.hidden=true;
+  };
+  if(localStorage.getItem(key)==='granted') loadAnalytics();
+  window.addEventListener('DOMContentLoaded',function(){
+    if(localStorage.getItem(key)) return;
+    const banner=document.createElement('div');
+    banner.id='cookie-consent';
+    banner.setAttribute('role','dialog');
+    banner.setAttribute('aria-label','Choix des cookies de mesure d’audience');
+    banner.innerHTML='<div class="cookie-consent-inner"><div><strong>Mesure d’audience</strong><p>Nous utilisons Google Analytics pour comprendre la fréquentation du site et améliorer nos contenus. Vous pouvez accepter ou refuser cette mesure.</p></div><div class="cookie-actions"><button class="btn btn-secondary cookie-refuse" type="button">Refuser</button><button class="btn btn-primary cookie-accept" type="button">Accepter</button></div></div>';
+    document.body.appendChild(banner);
+    banner.querySelector('.cookie-refuse').addEventListener('click',()=>window.paiSetAnalyticsConsent('denied'));
+    banner.querySelector('.cookie-accept').addEventListener('click',()=>window.paiSetAnalyticsConsent('granted'));
+  });
+})();
 </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Contactez Parler Arabe Institut pour toute question sur les cours d'arabe, les formations, les prérequis ou les inscriptions."><meta name="robots" content="index, follow"><link rel="canonical" href="https://parlerarabe.fr/contact.html"><link rel="stylesheet" href="style.css"><title>Contact | Parler Arabe Institut</title></head><body>
 <header class="navbar"><div class="container nav-inner"><a class="brand" href="index.html"><img src="assets/logo-corrige.png?v=2" alt="Parler Arabe Institut"><div>Parler Arabe<small>INSTITUT</small></div></a><button class="menu-btn" aria-label="Ouvrir le menu">☰</button><nav class="nav-links"><a href="index.html">Accueil</a><a href="formations.html">Nos formations</a><a href="methode.html">Méthode</a><a href="qui-sommes-nous.html">Qui sommes-nous ?</a><a href="temoignages.html">Témoignages</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a class="nav-cta" href="https://forms.gle/Bd4HH4yFsfzQt44U6" target="_blank" rel="noopener">Je m'inscris</a></nav></div></header>
 <main><section class="page-hero"><div class="container"><div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div><div class="eyebrow">Contact</div><h1>Une question ? Contactez-nous.</h1><p>Pour toute question concernant les formations, les prérequis ou l'inscription, vous pouvez nous écrire directement.</p></div></section><section class="section"><div class="container contact-grid"><div class="contact-card"><div class="eyebrow">Par email</div><h2>Écrivez-nous</h2><p>Nous vous répondrons au sujet de votre demande et vous orienterons vers le parcours adapté.</p><a class="btn btn-primary" href="mailto:parlerarabe1@gmail.com">Envoyer un email</a><p style="margin-top:18px"><strong>parlerarabe1@gmail.com</strong></p></div><div class="contact-card"><div class="eyebrow">Nos réseaux</div><h2>Parler Arabe Institut</h2><div class="socials"><a class="social" href="https://www.instagram.com/parlerarabe" target="_blank" rel="noopener">Instagram <span>@parlerarabe</span></a><a class="social" href="https://t.me/parlerarabe" target="_blank" rel="noopener">Telegram <span>@parlerarabe</span></a><a class="social" href="https://x.com/ParlerArabe" target="_blank" rel="noopener">X (Twitter) <span>@ParlerArabe</span></a><a class="social" href="https://www.youtube.com/@ParlerArabeInstitut" target="_blank" rel="noopener">YouTube <span>Parler Arabe Institut</span></a><a class="social" href="https://www.tiktok.com/@parlerarabe.inst" target="_blank" rel="noopener">TikTok <span>@parlerarabe.inst</span></a><a class="social" href="https://snapchat.com/t/4EVWT48Z" target="_blank" rel="noopener">Snapchat <span>Parler Arabe Institut</span></a></div></div></div></section><section class="section alt"><div class="container"><div class="cta"><h2>Vous souhaitez rejoindre un groupe ?</h2><p>Remplissez le formulaire de candidature / inscription. Vous pourrez y préciser votre situation et le parcours qui vous intéresse.</p><a class="btn btn-primary" style="background:#fff;color:#073f3c" href="https://forms.gle/Bd4HH4yFsfzQt44U6" target="_blank" rel="noopener">Je m'inscris</a></div></div></section></main>
