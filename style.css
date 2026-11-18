@@ -237,3 +237,6 @@ details p{color:var(--muted);padding:0 0 20px;margin:0}
 
 /* FAQ structurée par rubriques */
 .faq-topic{scroll-margin-top:105px;margin-bottom:48px}.faq-topic h2{font-size:clamp(2rem,3.5vw,2.7rem);margin-bottom:22px}.faq-topic .faq{max-width:100%}.faq-topic details{background:var(--paper);border:1px solid rgba(13,91,86,.12);border-radius:14px;margin-bottom:10px;overflow:hidden}.faq-topic summary{cursor:pointer;padding:18px 22px;font-weight:700;line-height:1.5}.faq-topic details p{margin:0;padding:0 22px 20px;color:var(--ink);line-height:1.75}.faq-topic details a{color:var(--green);text-decoration:underline;text-underline-offset:3px}.faq-topic summary:hover{background:rgba(121,185,174,.10)}@media(max-width:600px){.faq-topic summary{padding:16px}.faq-topic details p{padding:0 16px 18px}}
+
+/* Accueil : accès rapide au questionnaire d'inscription */
+.hero-reassurance{font-size:.83rem;color:var(--muted);margin:14px 0 0;max-width:680px;line-height:1.55}.card-helper{font-size:.82rem!important;margin:12px 0 0!important}.hero-actions .btn{min-height:49px;text-align:center}@media(max-width:600px){.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{width:100%}.hero-reassurance{font-size:.8rem}}
